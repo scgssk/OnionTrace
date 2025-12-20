@@ -19,5 +19,10 @@ contextBridge.exposeInMainWorld("api", {
       console.error("Failed to load results:", err);
       return [];
     }
+  },
+    saveResults: (data) => {
+    const out = path.resolve(__dirname, "..", "export_guard_report.json");
+    fs.writeFileSync(out, JSON.stringify(data, null, 2));
+    return out;
   }
 });
