@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>OnionTrace</title>
+  <style>
+    body { font-family: monospace; background: #0b0f14; color: #e5e7eb; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; border-bottom: 1px solid #333; }
+    th { color: #7dd3fc; text-align: left; }
+    .HIGH { color: #22c55e; }
+    .MEDIUM { color: #facc15; }
+    .LOW { color: #f87171; }
+  </style>
+</head>
+<body>
+  <h2>OnionTrace — Guard Correlation (Simulation Mode)</h2>
+  <table id="results">
+    <tr>
+      <th>Guard</th>
+      <th>Confidence</th>
+      <th>Level</th>
+      <th>Explanation</th>
+    </tr>
+  </table>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

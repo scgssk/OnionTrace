@@ -1,0 +1,19 @@
+{
+    "name": "oniontrace-electron",
+    "version": "1.0.0",
+    "description": "OnionTrace Forensic Dashboard",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "keywords": [
+        "tor",
+        "forensics",
+        "electron"
+    ],
+    "author": "OnionTrace Team",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "^28.3.3"
+    }
+}
