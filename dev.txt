@@ -1,0 +1,7 @@
+TOR consensus + relay parser (real consensus parsing, no mocks)
+
+PCAP ingestion & flow extraction
+
+Correlation + scoring math (the real brain)
+
+API layer wired to Electron

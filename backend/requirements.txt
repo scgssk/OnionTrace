@@ -1,0 +1,9 @@
+
+requests
+sqlalchemy
+scapy
+networkx
+pandas
+fastapi
+uvicorn
+tqdm
