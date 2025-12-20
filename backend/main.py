@@ -4,6 +4,9 @@ from app.db.repository import upsert_relays
 from app.db.engine import get_connection
 from pathlib import Path
 import sqlite3
+from app.evidence.pcap_ingest import ingest_pcap
+from app.evidence.flow_extract import extract_flows
+from app.evidence.store_flows import store_flows    
 
 def init_db():
     schema_path = Path(__file__).parent / "app/db/schema.sql"
@@ -35,6 +38,11 @@ def main():
     topo = TorTopology(relays)
     print("[+] Topology summary:", topo.summary())
 
+    evidence_id = ingest_pcap("c:\\Z\\torspy\\sample_data\\tor_exit_ngrok.pcap")   # use any PCAP you have
+    flows = extract_flows("c:\\Z\\torspy\\sample_data\\tor_exit_ngrok.pcap", evidence_id)
 
+    print(f"[+] Extracted {len(flows)} flows")
+
+    store_flows(flows)
 if __name__ == "__main__":
     main()

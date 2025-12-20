@@ -3,7 +3,7 @@ PRAGMA foreign_keys = ON;
 -- =========================
 -- TOR RELAYS (Authoritative)
 -- =========================
-CREATE TABLE relays (
+CREATE TABLE IF NOT EXISTS relays (
     relay_id TEXT PRIMARY KEY,        -- Base64 fingerprint
     nickname TEXT NOT NULL,
     ip TEXT NOT NULL,
@@ -26,7 +26,7 @@ CREATE INDEX idx_relays_exit ON relays(is_exit);
 -- =========================
 -- TOR SESSIONS (Observed)
 -- =========================
-CREATE TABLE sessions (
+CREATE TABLE IF NOT EXISTS sessions (
     session_id TEXT PRIMARY KEY,
     exit_ip TEXT NOT NULL,
 
@@ -39,7 +39,7 @@ CREATE INDEX idx_sessions_exit_ip ON sessions(exit_ip);
 -- =========================
 -- CORRELATION RESULTS
 -- =========================
-CREATE TABLE correlations (
+CREATE TABLE IF NOT EXISTS correlations (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
 
     session_id TEXT NOT NULL,
@@ -60,10 +60,34 @@ CREATE INDEX idx_corr_relay ON correlations(relay_id);
 -- =========================
 -- FORENSIC EVIDENCE
 -- =========================
-CREATE TABLE evidence (
+CREATE TABLE IF NOT EXISTS evidence (
     evidence_id TEXT PRIMARY KEY,
     type TEXT NOT NULL,                -- pcap | log
     sha256 TEXT NOT NULL,
 
     ingested_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS flows (
+    flow_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    evidence_id TEXT NOT NULL,
+
+    client_ip TEXT NOT NULL,
+    server_ip TEXT NOT NULL,
+    client_port INTEGER NOT NULL,
+    server_port INTEGER NOT NULL,
+
+    protocol TEXT NOT NULL,
+
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+
+    packet_count INTEGER NOT NULL,
+    byte_count INTEGER NOT NULL,
+
+    FOREIGN KEY(evidence_id) REFERENCES evidence(evidence_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_flows_server_ip ON flows(server_ip);
+CREATE INDEX IF NOT EXISTS idx_flows_time ON flows(start_time, end_time);
