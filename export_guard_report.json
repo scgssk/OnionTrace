@@ -1,0 +1,373 @@
+[
+  {
+    "guard_id": "C/axPS0/2+qx43CQMvumqQp6NRs",
+    "confidence": 1,
+    "confidence_level": "HIGH",
+    "sessions_seen": 25,
+    "explanation": "Guard C/axPS0/2+qx43CQMvumqQp6NRs appeared in 25 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "rGQhylw/7ZnWT1dOPC6mkNG9hJc",
+    "confidence": 1,
+    "confidence_level": "HIGH",
+    "sessions_seen": 25,
+    "explanation": "Guard rGQhylw/7ZnWT1dOPC6mkNG9hJc appeared in 25 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "UBYf9CsRuHxM3SEM+ctJCnsIjbs",
+    "confidence": 1,
+    "confidence_level": "HIGH",
+    "sessions_seen": 25,
+    "explanation": "Guard UBYf9CsRuHxM3SEM+ctJCnsIjbs appeared in 25 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "eSuCG512ND/7SwC8X4QLnsBHzQ8",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard eSuCG512ND/7SwC8X4QLnsBHzQ8 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "4jDItd1OtGrsVyAkKYvWrSDc4k8",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 4jDItd1OtGrsVyAkKYvWrSDc4k8 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "2oydUJmJ+Bdew+SHeIgV97rS2uw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 2oydUJmJ+Bdew+SHeIgV97rS2uw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "BDK+6Cn8sVXOks9Bi3KA+YSeEtA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard BDK+6Cn8sVXOks9Bi3KA+YSeEtA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "eLS6GiUs3AYj+8rDQgvBnwEF9P4",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard eLS6GiUs3AYj+8rDQgvBnwEF9P4 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "Ywhr2p6aD/MzXWgFXEb3siMwNDw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard Ywhr2p6aD/MzXWgFXEb3siMwNDw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "E1i3JvxqDS0VQXsDdrPkLUjFAhE",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard E1i3JvxqDS0VQXsDdrPkLUjFAhE appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "oH092QOe5ClBsboE4XeBcDmobtw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard oH092QOe5ClBsboE4XeBcDmobtw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "AzgWgkT+UxpOaLWlOFC4k2Xiios",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard AzgWgkT+UxpOaLWlOFC4k2Xiios appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "cHj5ZYKeXCw+5sH9kO8un/HR5cU",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard cHj5ZYKeXCw+5sH9kO8un/HR5cU appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "qMAEy1BttQ7SOjXghpXhf+imHFU",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard qMAEy1BttQ7SOjXghpXhf+imHFU appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "IIBH0hlnrKm81EKyDDAGA60Jv8U",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard IIBH0hlnrKm81EKyDDAGA60Jv8U appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "0NvFr5Rkb3h/xSXUUsM0R04C/Ts",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 0NvFr5Rkb3h/xSXUUsM0R04C/Ts appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "f+QrzrTr+zNFj7N7OIUCxMfXIl0",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard f+QrzrTr+zNFj7N7OIUCxMfXIl0 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "18bD0q22aczT2OIuWgF3YWTF9dE",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 18bD0q22aczT2OIuWgF3YWTF9dE appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "twR/venFPDkBHKhOXLKo41QwZtA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard twR/venFPDkBHKhOXLKo41QwZtA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "PVi04US0MUQI709vSnsx/YAHHZ4",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard PVi04US0MUQI709vSnsx/YAHHZ4 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "kXMLRCX5hrfcbjzHLHjq6Fr7Q40",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard kXMLRCX5hrfcbjzHLHjq6Fr7Q40 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "/+nE0Uuyu5TnmUoCxg6viR7Axcw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard /+nE0Uuyu5TnmUoCxg6viR7Axcw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "xv/iqwz/qG+xYdy1vHLaanZOVF4",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard xv/iqwz/qG+xYdy1vHLaanZOVF4 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "2sglu/BdZ4q96hwwhujZnPC78RI",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 2sglu/BdZ4q96hwwhujZnPC78RI appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "ex7IsXxeSNEsORWaWVYm1hDyk3c",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard ex7IsXxeSNEsORWaWVYm1hDyk3c appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "UMNZd+PoLAESm7IstqsNZ0dz1YQ",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard UMNZd+PoLAESm7IstqsNZ0dz1YQ appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "dZuxByTGIrEjgYT+Q3c7ZIGxrUM",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard dZuxByTGIrEjgYT+Q3c7ZIGxrUM appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "V0b+S42Gj+B4FtuEbf+8zvI1rRY",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard V0b+S42Gj+B4FtuEbf+8zvI1rRY appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "0W0Z7SqFcCQnCL2r/fzXueSEyLA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 0W0Z7SqFcCQnCL2r/fzXueSEyLA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "aMXzT9+6frktOu27vut8NryAmdg",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard aMXzT9+6frktOu27vut8NryAmdg appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "RxhuNjFokFen7yI+zF2GkYqeZ54",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard RxhuNjFokFen7yI+zF2GkYqeZ54 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "Z0i6UxCXqTB3b5DiC277o1GaI8A",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard Z0i6UxCXqTB3b5DiC277o1GaI8A appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "UwozKircr21DEqBza83feWoJcls",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard UwozKircr21DEqBza83feWoJcls appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "ITZJN4Yc1+0ivx0IqetV8nQ+A9g",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard ITZJN4Yc1+0ivx0IqetV8nQ+A9g appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "VihJXZk5qME53UQUAt5C9wErcJI",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard VihJXZk5qME53UQUAt5C9wErcJI appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "cRMr5p6Y9slkx23DATLdM7tmfq8",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard cRMr5p6Y9slkx23DATLdM7tmfq8 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "YNNmf1auxcac9+j1V9sh3fbDYGA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard YNNmf1auxcac9+j1V9sh3fbDYGA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "2jgPuAFTnM4alPnS9BQfWRba+4M",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 2jgPuAFTnM4alPnS9BQfWRba+4M appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "/l3b4VnKO7pxWoLUnAj3O0tTeFQ",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard /l3b4VnKO7pxWoLUnAj3O0tTeFQ appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "4AyERkPYMkrofwDCcGax53DZllE",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 4AyERkPYMkrofwDCcGax53DZllE appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "pc8erzwMPZmKmcgScEb8oPi2lyM",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard pc8erzwMPZmKmcgScEb8oPi2lyM appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "qr0yC/gDqPWWVHicwf3Tn3OpUGw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard qr0yC/gDqPWWVHicwf3Tn3OpUGw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "d43LnbbN1f8vGoVXEwi0ktbf+WI",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard d43LnbbN1f8vGoVXEwi0ktbf+WI appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "lQk4HskbNGQopdNSjyaD8lhB3QA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard lQk4HskbNGQopdNSjyaD8lhB3QA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "os7jdzRY65xg7Lp2jIMDidtWI9M",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard os7jdzRY65xg7Lp2jIMDidtWI9M appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "E4S0X0cu/HhNgz5d0qZ/Vv+4tlg",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard E4S0X0cu/HhNgz5d0qZ/Vv+4tlg appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "rC/jMq3MW4z4kHCiuKntHYd/Xoo",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard rC/jMq3MW4z4kHCiuKntHYd/Xoo appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "/zU/XQEeaezaEKV7RtBrx7P+sZY",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard /zU/XQEeaezaEKV7RtBrx7P+sZY appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "/D9v0qE5NSe7U3hxeP5ORvziw3s",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard /D9v0qE5NSe7U3hxeP5ORvziw3s appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "0ihcKm6kUPZr1NN019kOmwL8gu8",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 0ihcKm6kUPZr1NN019kOmwL8gu8 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "cOKxtIeI3RYQSR1ebUvDRRD6l/U",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard cOKxtIeI3RYQSR1ebUvDRRD6l/U appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "V4k507VcGjeOmybq5ImnVyMqdeg",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard V4k507VcGjeOmybq5ImnVyMqdeg appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "YXyV/PXwDpjnPjWnHAZu0gYU8m0",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard YXyV/PXwDpjnPjWnHAZu0gYU8m0 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  }
+]

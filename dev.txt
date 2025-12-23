@@ -1,7 +1,1365 @@
-TOR consensus + relay parser (real consensus parsing, no mocks)
+----- FILE: C:\Z\oniontrace\README.md -----
+# OnionTrace
 
-PCAP ingestion & flow extraction
+OnionTrace is a forensic analysis tool designed for correlating TOR traffic with potential evidence.
 
-Correlation + scoring math (the real brain)
+## Project Structure
 
-API layer wired to Electron
+```
+oniontrace/
+│
+├── backend/
+│   ├── app/
+│   │   ├── core/                 # Core intelligence (Traffic correlation, Scoring)
+│   │   ├── tor/                  # TOR network intelligence (Consensus, Toplogy)
+│   │   ├── evidence/             # Evidence processing (PCAP, Logs)
+│   │   ├── db/                   # Database layer
+│   │   ├── api/                  # API layer
+│   │   └── utils/                # Utilities
+│   │
+│   ├── main.py                   # Application entry point
+│   └── requirements.txt
+│
+└── electron/                     # Frontend application (Future)
+```
+
+
+----- FILE: C:\Z\oniontrace\backend\main.py -----
+from app.tor.consensus import fetch_latest_consensus, TorConsensusParser
+from app.tor.topology import TorTopology
+from app.db.repository import upsert_relays
+from app.db.engine import get_connection
+from pathlib import Path
+import sqlite3
+from app.evidence.pcap_ingest import ingest_pcap
+from app.evidence.flow_extract import extract_flows
+from app.evidence.store_flows import store_flows    
+from app.core.sessionize import build_sessions
+from app.core.store_sessions import store_sessions
+from app.core.exit_match import match_exit_relays
+from app.evidence.validate import validate_traffic
+import sys
+from app.core.mode import MODE
+from app.core.output import build_output
+import random
+random.seed(42)
+import json
+from pathlib import Path
+
+mode = MODE
+if len(sys.argv) > 1:
+    mode = sys.argv[1]
+
+def init_db():
+    schema_path = Path(__file__).parent / "app/db/schema.sql"
+    try:
+        with get_connection() as conn:
+            conn.executescript(schema_path.read_text())
+    except sqlite3.OperationalError as e:
+        if "already exists" in str(e):
+            print("[!] Database tables already exist. Skipping initialization.")
+        else:
+            raise e
+
+def main():
+    print("[+] Initializing database")
+    init_db()
+
+    print("[+] Fetching TOR consensus")
+    raw = fetch_latest_consensus()
+
+    print("[+] Parsing relays")
+    parser = TorConsensusParser(raw)
+    relays = parser.parse()
+
+    print(f"[+] Parsed {len(relays)} relays")
+
+    print("[+] Storing relays")
+    upsert_relays(relays)
+
+    topo = TorTopology(relays)
+    print("[+] Topology summary:", topo.summary())
+
+    evidence_id = ingest_pcap("c:\\Z\\torspy\\sample_data\\tor_exit_ngrok.pcap")   # use any PCAP you have
+    flows = extract_flows("c:\\Z\\torspy\\sample_data\\tor_exit_ngrok.pcap", evidence_id)
+
+    print(f"[+] Extracted {len(flows)} flows")
+
+    store_flows(flows)
+    if not validate_traffic(evidence_id):
+        print("[!] Aborting correlation pipeline safely")
+        return
+
+    sessions = build_sessions(evidence_id)
+    store_sessions(sessions)
+
+    # matched_sessions = match_exit_relays(vantage="server")
+    
+    if mode == "simulation":
+        print("[*] Running in SIMULATION mode")
+
+        from app.core.simulated_input import generate_simulated_guards
+        from app.core.correlate import correlate_guards
+
+        # Get all guard relay IDs from topology
+        all_guards = {r.relay_id for r in relays if r.is_guard}
+
+        session_guards = generate_simulated_guards(
+            sessions=sessions,
+            all_guards=all_guards
+        )
+
+        results = correlate_guards(session_guards)
+
+        final_output = build_output(results, total_sessions=len(sessions))
+        
+        print("\n[+] Final Intelligence Output (Simulation Mode)")
+        for item in final_output[:5]:
+            print(item)
+
+        
+        out_path = Path("output_simulation.json")
+        out_path.write_text(json.dumps(final_output, indent=2))
+
+        print(f"[+] Output written to {out_path.resolve()}")
+        return
+
+
+if __name__ == "__main__":
+    main()
+
+
+----- FILE: C:\Z\oniontrace\backend\requirements.txt -----
+
+requests
+sqlalchemy
+scapy
+networkx
+pandas
+fastapi
+uvicorn
+tqdm
+
+
+----- FILE: C:\Z\oniontrace\backend\app\__init__.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\api\routes.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\api\server.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\api\__init__.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\correlate.py -----
+from collections import defaultdict
+
+def correlate_guards(session_guards: dict):
+    """
+    session_guards:
+      { session_id: set(guard_ids) }
+    """
+
+    counts = defaultdict(int)
+    total_sessions = len(session_guards)
+
+    for guards in session_guards.values():
+        for g in guards:
+            counts[g] += 1
+
+    results = []
+    for guard, seen in counts.items():
+        confidence = round(seen / total_sessions, 3)
+        results.append({
+            "guard_id": guard,
+            "seen_sessions": seen,
+            "confidence": confidence
+        })
+
+    return sorted(results, key=lambda x: x["confidence"], reverse=True)
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\exit_match.py -----
+from app.db.engine import get_connection
+
+def match_exit_relays(vantage: str = "server"):
+    """
+    Matches sessions to TOR exit relays.
+
+    vantage:
+      - 'server'  → Tor exit is CLIENT IP (your case)
+      - 'exit'    → Tor exit is SERVER IP
+    """
+
+    if vantage == "server":
+        join_field = "client_ip"
+    else:
+        join_field = "exit_ip"
+
+    query = f"""
+        SELECT
+            s.session_id,
+            s.exit_ip,
+            s.start_time,
+            s.end_time,
+            r.relay_id,
+            r.bandwidth,
+            r.ip as tor_exit_ip
+        FROM sessions s
+        JOIN flows f ON s.session_id = f.evidence_id
+        JOIN relays r ON f.{join_field} = r.ip
+        WHERE r.is_exit = 1
+          AND r.is_bad_exit = 0
+        GROUP BY s.session_id
+    """
+
+    with get_connection() as conn:
+        rows = conn.execute(query).fetchall()
+
+    matched = []
+    for row in rows:
+        matched.append({
+            "session_id": row["session_id"],
+            "tor_exit_ip": row["tor_exit_ip"],
+            "relay_id": row["relay_id"],
+            "bandwidth": row["bandwidth"],
+            "start_time": row["start_time"],
+            "end_time": row["end_time"],
+        })
+
+    print(f"[+] Matched {len(matched)} sessions to TOR exit relays")
+    return matched
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\explain.py -----
+def explain_guard(guard_id, seen, total):
+    return (
+        f"Guard {guard_id} appeared in {seen} out of {total} sessions. "
+        f"Repeated appearance across independent sessions increases confidence "
+        f"due to TOR guard stickiness."
+    )
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\labels.py -----
+def confidence_label(confidence: float) -> str:
+    if confidence >= 0.75:
+        return "HIGH"
+    elif confidence >= 0.4:
+        return "MEDIUM"
+    return "LOW"
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\mode.py -----
+MODE = "simulation"   # change to "realtime" later
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\output.py -----
+from app.core.labels import confidence_label
+from app.core.explain import explain_guard
+
+
+def build_output(results, total_sessions):
+    output = []
+
+    for r in results:
+        output.append({
+            "guard_id": r["guard_id"],
+            "confidence": r["confidence"],
+            "confidence_level": confidence_label(r["confidence"]),
+            "sessions_seen": r["seen_sessions"],
+            "explanation": explain_guard(
+                r["guard_id"],
+                r["seen_sessions"],
+                total_sessions
+            )
+        })
+
+    return output
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\realtime_input.py -----
+def derive_guard_candidates(matched_sessions):
+    """
+    Real implementation:
+    - timing windows
+    - bandwidth plausibility
+    - network constraints
+    """
+    raise NotImplementedError
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\run_correlation.py -----
+MODE = "simulation"   # switch to "realtime" later
+
+def run_correlation(sessions, all_guards):
+    if MODE == "simulation":
+        from app.core.simulated_input import generate_simulated_guards
+        session_guards = generate_simulated_guards(sessions, all_guards)
+
+    elif MODE == "realtime":
+        from app.core.realtime_input import derive_guard_candidates
+        session_guards = derive_guard_candidates(sessions)
+
+    else:
+        raise ValueError("Invalid mode")
+
+    from app.core.correlate import correlate_guards
+    return correlate_guards(session_guards)
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\sessionize.py -----
+import uuid
+from app.db.engine import get_connection
+from datetime import datetime,timedelta
+
+SESSION_GAP_SECONDS = 30
+MIN_FLOWS_PER_SESSION = 3
+
+def parse_ts(ts):
+    if isinstance(ts, datetime):
+        return ts
+    return datetime.fromisoformat(ts)
+
+
+
+def build_sessions(evidence_id: str):
+    """
+    Groups flows into TOR exit sessions.
+    Returns list of session dicts.
+    """
+
+    with get_connection() as conn:
+        rows = conn.execute(
+            """
+            SELECT
+                server_ip,
+                start_time,
+                end_time
+            FROM flows
+            WHERE evidence_id = ?
+            ORDER BY server_ip, start_time
+            """,
+            (evidence_id,),
+        ).fetchall()
+
+    sessions = []
+    current = None
+
+    for row in rows:
+        server_ip = row["server_ip"]
+        start = parse_ts(row["start_time"])
+        end = parse_ts(row["end_time"])
+
+        if current is None:
+            current = _new_session(server_ip, start, end)
+            continue
+
+        gap = (start - current["last_end"]).total_seconds()
+
+        if server_ip == current["exit_ip"] and gap <= SESSION_GAP_SECONDS:
+            current["last_end"] = max(current["last_end"], end)
+            current["flow_count"] += 1
+        else:
+            if current["flow_count"] >= MIN_FLOWS_PER_SESSION:
+                sessions.append(_finalize_session(current))
+
+            current = _new_session(server_ip, start, end)
+
+    if current and current["flow_count"] >= MIN_FLOWS_PER_SESSION:
+        sessions.append(_finalize_session(current))
+
+    print(f"[+] Built {len(sessions)} sessions")
+    return sessions
+
+
+def _new_session(exit_ip, start, end):
+    return {
+        "session_id": str(uuid.uuid4()),
+        "exit_ip": exit_ip,
+        "start_time": start,
+        "last_end": end,
+        "flow_count": 1,
+    }
+
+
+def _finalize_session(session):
+    return {
+        "session_id": session["session_id"],
+        "exit_ip": session["exit_ip"],
+        "start_time": session["start_time"],
+        "end_time": session["last_end"],
+        "flow_count": session["flow_count"],
+    }
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\simulated_input.py -----
+import random
+
+def generate_simulated_guards(sessions, all_guards, sticky_guards=3, noise=2):
+    """
+    Simulates TOR guard stickiness.
+
+    - sticky_guards: guards common across all sessions
+    - noise: random guards per session
+    """
+
+    all_guards = list(all_guards)
+    base = set(random.sample(all_guards, sticky_guards))
+
+    session_map = {}
+
+    for s in sessions:
+        extra = set(random.sample(all_guards, noise))
+        session_map[s["session_id"]] = base | extra
+
+    return session_map
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\store_sessions.py -----
+from app.db.engine import get_connection
+
+
+def store_sessions(sessions: list[dict]):
+    with get_connection() as conn:
+        for s in sessions:
+            conn.execute(
+                """
+                INSERT INTO sessions (
+                    session_id,
+                    exit_ip,
+                    start_time,
+                    end_time
+                )
+                VALUES (?, ?, ?, ?)
+                """,
+                (
+                    s["session_id"],
+                    s["exit_ip"],
+                    s["start_time"],
+                    s["end_time"],
+                ),
+            )
+
+    print(f"[+] Stored {len(sessions)} sessions")
+
+
+----- FILE: C:\Z\oniontrace\backend\app\core\__init__.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\db\engine.py -----
+import sqlite3
+from pathlib import Path
+
+DB_PATH = Path(__file__).resolve().parents[3] / "oniontrace.db"
+
+def get_connection():
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+----- FILE: C:\Z\oniontrace\backend\app\db\repository.py -----
+from app.db.engine import get_connection
+from app.tor.consensus import Relay
+
+
+def upsert_relays(relays):
+    with get_connection() as conn:
+        for r in relays:
+            conn.execute(
+                """
+                INSERT INTO relays (
+                    relay_id, nickname, ip,
+                    is_guard, is_exit, is_bad_exit,
+                    bandwidth, published, last_seen
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+                ON CONFLICT(relay_id) DO UPDATE SET
+                    ip=excluded.ip,
+                    is_guard=excluded.is_guard,
+                    is_exit=excluded.is_exit,
+                    is_bad_exit=excluded.is_bad_exit,
+                    bandwidth=excluded.bandwidth,
+                    published=excluded.published,
+                    last_seen=CURRENT_TIMESTAMP
+                """,
+                (
+                    r.relay_id,
+                    r.nickname,
+                    r.ip,
+                    int(r.is_guard),
+                    int(r.is_exit),
+                    int(r.is_bad_exit),
+                    r.bandwidth,
+                    r.published,
+                ),
+            )
+
+
+----- FILE: C:\Z\oniontrace\backend\app\db\schema.sql -----
+PRAGMA foreign_keys = ON;
+
+-- =========================
+-- TOR RELAYS (Authoritative)
+-- =========================
+CREATE TABLE IF NOT EXISTS relays (
+    relay_id TEXT PRIMARY KEY,        -- Base64 fingerprint
+    nickname TEXT NOT NULL,
+    ip TEXT NOT NULL,
+
+    is_guard INTEGER NOT NULL,         -- 0 / 1
+    is_exit INTEGER NOT NULL,          -- 0 / 1
+    is_bad_exit INTEGER NOT NULL,      -- BadExit or MiddleOnly
+
+    bandwidth INTEGER NOT NULL,        -- Consensus weight
+    published DATETIME NOT NULL,       -- From r-line timestamp
+
+    first_seen DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_seen DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_relays_ip ON relays(ip);
+CREATE INDEX idx_relays_guard ON relays(is_guard);
+CREATE INDEX idx_relays_exit ON relays(is_exit);
+
+-- =========================
+-- TOR SESSIONS (Observed)
+-- =========================
+CREATE TABLE IF NOT EXISTS sessions (
+    session_id TEXT PRIMARY KEY,
+    exit_ip TEXT NOT NULL,
+
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL
+);
+
+CREATE INDEX idx_sessions_exit_ip ON sessions(exit_ip);
+
+-- =========================
+-- CORRELATION RESULTS
+-- =========================
+CREATE TABLE IF NOT EXISTS correlations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    session_id TEXT NOT NULL,
+    relay_id TEXT NOT NULL,
+
+    score REAL NOT NULL,               -- Raw correlation score
+    confidence REAL NOT NULL,          -- Normalized probability (0–1)
+
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY(session_id) REFERENCES sessions(session_id),
+    FOREIGN KEY(relay_id) REFERENCES relays(relay_id)
+);
+
+CREATE INDEX idx_corr_session ON correlations(session_id);
+CREATE INDEX idx_corr_relay ON correlations(relay_id);
+
+-- =========================
+-- FORENSIC EVIDENCE
+-- =========================
+CREATE TABLE IF NOT EXISTS evidence (
+    evidence_id TEXT PRIMARY KEY,
+    type TEXT NOT NULL,                -- pcap | log
+    sha256 TEXT NOT NULL,
+
+    ingested_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS flows (
+    flow_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    evidence_id TEXT NOT NULL,
+
+    client_ip TEXT NOT NULL,
+    server_ip TEXT NOT NULL,
+    client_port INTEGER NOT NULL,
+    server_port INTEGER NOT NULL,
+
+    protocol TEXT NOT NULL,
+
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+
+    packet_count INTEGER NOT NULL,
+    byte_count INTEGER NOT NULL,
+
+    FOREIGN KEY(evidence_id) REFERENCES evidence(evidence_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_flows_server_ip ON flows(server_ip);
+CREATE INDEX IF NOT EXISTS idx_flows_time ON flows(start_time, end_time);
+
+
+----- FILE: C:\Z\oniontrace\backend\app\db\__init__.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\evidence\flow_extract.py -----
+from scapy.all import rdpcap, IP, TCP, UDP
+from collections import defaultdict
+from datetime import datetime
+from tqdm import tqdm
+
+
+def extract_flows(pcap_path: str, evidence_id: str):
+    """
+    Extracts network flows from a PCAP file.
+    Returns a list of flow dicts.
+    """
+
+    packets = rdpcap(pcap_path)
+    flows = {}
+
+    for pkt in tqdm(packets, desc="[*] Processing packets"):
+        if IP not in pkt:
+            continue
+
+        ip = pkt[IP]
+        proto = None
+        sport = dport = None
+
+        if TCP in pkt:
+            proto = "TCP"
+            sport = pkt[TCP].sport
+            dport = pkt[TCP].dport
+        elif UDP in pkt:
+            proto = "UDP"
+            sport = pkt[UDP].sport
+            dport = pkt[UDP].dport
+        else:
+            continue
+
+        key = (
+            ip.src,
+            sport,
+            ip.dst,
+            dport,
+            proto,
+        )
+
+        ts = datetime.fromtimestamp(float(pkt.time))
+        size = len(pkt)
+
+        if key not in flows:
+            flows[key] = {
+                "evidence_id": evidence_id,
+                "src_ip": ip.src,
+                "dst_ip": ip.dst,
+                "src_port": sport,
+                "dst_port": dport,
+                "protocol": proto,
+                "start_time": ts,
+                "end_time": ts,
+                "packet_count": 1,
+                "byte_count": size,
+            }
+        else:
+            f = flows[key]
+            f["end_time"] = ts
+            f["packet_count"] += 1
+            f["byte_count"] += size
+
+    return list(flows.values())
+
+
+----- FILE: C:\Z\oniontrace\backend\app\evidence\normalizer.py -----
+def normalize_flow(flow: dict) -> dict:
+    """
+    Normalize flow direction so that:
+    client = ephemeral port
+    server = well-known port
+    """
+
+    if flow["src_port"] < flow["dst_port"]:
+        client_ip = flow["dst_ip"]
+        server_ip = flow["src_ip"]
+        client_port = flow["dst_port"]
+        server_port = flow["src_port"]
+    else:
+        client_ip = flow["src_ip"]
+        server_ip = flow["dst_ip"]
+        client_port = flow["src_port"]
+        server_port = flow["dst_port"]
+
+    return {
+        "evidence_id": flow["evidence_id"],
+        "client_ip": client_ip,
+        "server_ip": server_ip,
+        "client_port": client_port,
+        "server_port": server_port,
+        "protocol": flow["protocol"],
+        "start_time": flow["start_time"],
+        "end_time": flow["end_time"],
+        "packet_count": flow["packet_count"],
+        "byte_count": flow["byte_count"],
+    }
+
+
+----- FILE: C:\Z\oniontrace\backend\app\evidence\pcap_ingest.py -----
+import hashlib
+from pathlib import Path
+from app.db.engine import get_connection
+import uuid
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(8192), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def ingest_pcap(pcap_path: str) -> str:
+    """
+    Registers a PCAP file as forensic evidence.
+    Returns evidence_id.
+    """
+    path = Path(pcap_path)
+    if not path.exists():
+        raise FileNotFoundError(f"PCAP not found: {pcap_path}")
+
+    file_hash = sha256_file(path)
+    evidence_id = str(uuid.uuid4())
+
+    with get_connection() as conn:
+        conn.execute(
+            """
+            INSERT INTO evidence (evidence_id, type, sha256)
+            VALUES (?, ?, ?)
+            """,
+            (evidence_id, "pcap", file_hash),
+        )
+
+    print(f"[+] Evidence registered: {evidence_id}")
+    print(f"[+] SHA256: {file_hash}")
+
+    return evidence_id
+
+
+----- FILE: C:\Z\oniontrace\backend\app\evidence\store_flows.py -----
+from app.db.engine import get_connection
+from app.evidence.normalizer import normalize_flow
+
+
+def store_flows(flows: list[dict]):
+    with get_connection() as conn:
+        for f in flows:
+            nf = normalize_flow(f)
+
+            conn.execute(
+                """
+                INSERT INTO flows (
+                    evidence_id,
+                    client_ip,
+                    server_ip,
+                    client_port,
+                    server_port,
+                    protocol,
+                    start_time,
+                    end_time,
+                    packet_count,
+                    byte_count
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    nf["evidence_id"],
+                    nf["client_ip"],
+                    nf["server_ip"],
+                    nf["client_port"],
+                    nf["server_port"],
+                    nf["protocol"],
+                    nf["start_time"],
+                    nf["end_time"],
+                    nf["packet_count"],
+                    nf["byte_count"],
+                ),
+            )
+
+    print(f"[+] Stored {len(flows)} normalized flows")
+
+
+----- FILE: C:\Z\oniontrace\backend\app\evidence\validate.py -----
+import ipaddress
+from app.db.engine import get_connection
+
+
+def is_public_unicast(ip: str) -> bool:
+    try:
+        addr = ipaddress.ip_address(ip)
+        return (
+            addr.version == 4
+            and not addr.is_private
+            and not addr.is_loopback
+            and not addr.is_multicast
+            and not addr.is_reserved
+            and not addr.is_link_local
+        )
+    except ValueError:
+        return False
+
+
+def validate_traffic(evidence_id: str) -> bool:
+    """
+    Returns True if PCAP likely contains TOR exit traffic.
+    """
+    with get_connection() as conn:
+        rows = conn.execute(
+            """
+            SELECT client_ip, server_ip
+            FROM flows
+            WHERE evidence_id = ?
+            """,
+            (evidence_id,),
+        ).fetchall()
+
+    public_hits = 0
+
+    for row in rows:
+        if is_public_unicast(row["client_ip"]) or is_public_unicast(row["server_ip"]):
+            public_hits += 1
+            break
+
+    if public_hits == 0:
+        print("[!] Traffic validation failed")
+        print("[!] No public unicast IPs detected")
+        print("[!] This PCAP does NOT contain TOR exit traffic")
+        return False
+
+    print("[+] Traffic validation passed (public IPs detected)")
+    return True
+
+
+----- FILE: C:\Z\oniontrace\backend\app\evidence\__init__.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\tor\consensus.py -----
+import urllib.request
+import datetime
+import re
+from typing import List
+from app.tor.models import Relay
+
+BASE_URL = (
+    "https://collector.torproject.org/recent/"
+    "relay-descriptors/consensuses/"
+)
+
+
+def fetch_latest_consensus() -> str:
+    # 1. Fetch directory listing
+    with urllib.request.urlopen(BASE_URL, timeout=30) as resp:
+        html = resp.read().decode("utf-8")
+
+    # 2. Extract consensus filenames
+    files = re.findall(
+        r'href="(\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-consensus)"',
+        html,
+    )
+
+    if not files:
+        raise RuntimeError("No consensus files found")
+
+    # 3. Pick latest file
+    latest = sorted(files)[-1]
+    consensus_url = BASE_URL + latest
+
+    print(f"[+] Using consensus file: {latest}")
+
+    # 4. Fetch consensus file
+    with urllib.request.urlopen(consensus_url, timeout=30) as resp:
+        return resp.read().decode("utf-8")
+
+
+class TorConsensusParser:
+    def __init__(self, raw_text: str):
+        self.lines = raw_text.splitlines()
+        self.i = 0
+
+    def parse(self) -> List[Relay]:
+        relays: List[Relay] = []
+
+        while self.i < len(self.lines):
+            if self.lines[self.i].startswith("r "):
+                relay = self._parse_relay()
+                if relay:
+                    relays.append(relay)
+            else:
+                self.i += 1
+
+        return relays
+
+    def _parse_relay(self) -> Relay | None:
+        r_parts = self.lines[self.i].split()
+        if len(r_parts) < 8:
+            self.i += 1
+            return None
+
+        nickname = r_parts[1]
+        fingerprint = r_parts[2]
+        ip = r_parts[6]
+
+        published = datetime.datetime.strptime(
+            f"{r_parts[4]} {r_parts[5]}",
+            "%Y-%m-%d %H:%M:%S",
+        )
+
+        is_guard = False
+        is_exit = False
+        is_bad_exit = False
+        bandwidth = 0
+
+        self.i += 1
+
+        while self.i < len(self.lines):
+            line = self.lines[self.i]
+
+            if line.startswith("s "):
+                flags = set(line.split()[1:])
+                is_guard = "Guard" in flags
+                is_exit = "Exit" in flags
+                is_bad_exit = "BadExit" in flags or "MiddleOnly" in flags
+
+            elif line.startswith("w "):
+                for token in line.split():
+                    if token.startswith("Bandwidth="):
+                        bandwidth = int(token.split("=")[1])
+
+            elif line.startswith("r "):
+                break
+
+            self.i += 1
+
+        if is_exit and is_bad_exit:
+            is_exit = False
+
+        return Relay(
+            relay_id=fingerprint,
+            nickname=nickname,
+            ip=ip,
+            is_guard=is_guard,
+            is_exit=is_exit,
+            is_bad_exit=is_bad_exit,
+            bandwidth=bandwidth,
+            published=published,
+        )
+
+
+----- FILE: C:\Z\oniontrace\backend\app\tor\descriptors.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\tor\models.py -----
+from dataclasses import dataclass
+from datetime import datetime
+
+@dataclass(frozen=True)
+class Relay:
+    relay_id: str          # fingerprint (base64)
+    nickname: str
+    ip: str
+    is_guard: bool
+    is_exit: bool
+    is_bad_exit: bool
+    bandwidth: int
+    published: datetime
+
+
+----- FILE: C:\Z\oniontrace\backend\app\tor\topology.py -----
+from collections import defaultdict
+from typing import List
+from app.tor.consensus import Relay
+
+
+class TorTopology:
+    def __init__(self, relays: List[Relay]):
+        self.relays = relays
+        self.guards = []
+        self.exits = []
+
+        self._classify()
+
+    def _classify(self):
+        for relay in self.relays:
+            if relay.is_guard:
+                self.guards.append(relay)
+            if relay.is_exit:
+                self.exits.append(relay)
+
+    def summary(self) -> dict:
+        return {
+            "total_relays": len(self.relays),
+            "guards": len(self.guards),
+            "exits": len(self.exits),
+        }
+
+
+----- FILE: C:\Z\oniontrace\backend\app\tor\__init__.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\utils\hashing.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\utils\time.py -----
+
+
+----- FILE: C:\Z\oniontrace\backend\app\utils\__init__.py -----
+
+
+----- FILE: C:\Z\oniontrace\electron\index.html -----
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>OnionTrace Analysis</title>
+    <!-- Use Inter font for a clean, technical look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --success: #22c55e;
+            --warning: #eab308;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 24px;
+            line-height: 1.5;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .title-group h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .title-group p {
+            margin: 4px 0 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .controls button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .controls button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background: #111827;
+            text-align: left;
+            padding: 12px 16px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .guard-id {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+        }
+
+        .explanation {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .bar-container {
+            width: 120px;
+            height: 6px;
+            background: #334155;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Status Colors */
+        .HIGH .bar-fill,
+        .tag.HIGH {
+            background: var(--success);
+            color: #000;
+        }
+
+        .MEDIUM .bar-fill,
+        .tag.MEDIUM {
+            background: var(--warning);
+            color: #000;
+        }
+
+        .LOW .bar-fill,
+        .tag.LOW {
+            background: var(--danger);
+            color: #fff;
+        }
+
+        .HIGH .tag.HIGH {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .MEDIUM .tag.MEDIUM {
+            background: rgba(234, 179, 8, 0.2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+
+        .LOW .tag.LOW {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        .empty-state {
+            padding: 48px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="title-group">
+            <h1>OnionTrace Analysis</h1>
+            <p id="meta">Network Forensics Intelligence Dashboard</p>
+        </div>
+        <div class="controls">
+            <button id="export">
+                <span>Download Report</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <table id="results">
+            <thead>
+                <tr>
+                    <th width="20%">Guard Identify (Base64)</th>
+                    <th width="15%">Confidence</th>
+                    <th width="10%">Score</th>
+                    <th width="10%">Level</th>
+                    <th width="45%">Forensic Reasoning</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Rows injected by renderer.js -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
+
+----- FILE: C:\Z\oniontrace\electron\main.js -----
+const { app, BrowserWindow } = require("electron");
+const path = require("path");
+
+function createWindow() {
+  const win = new BrowserWindow({
+    width: 1000,
+    height: 700,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+      contextIsolation: true,
+      sandbox: false   // 🔥 THIS IS THE FIX
+    }
+  });
+
+  win.loadFile("index.html");
+  win.webContents.openDevTools(); // keep for debugging
+}
+
+app.whenReady().then(createWindow);
+
+
+----- FILE: C:\Z\oniontrace\electron\package.json -----
+{
+    "name": "oniontrace-electron",
+    "version": "1.0.0",
+    "description": "OnionTrace Forensic Dashboard",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "keywords": [
+        "tor",
+        "forensics",
+        "electron"
+    ],
+    "author": "OnionTrace Team",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "^28.3.3"
+    }
+}
+
+
+----- FILE: C:\Z\oniontrace\electron\preload.js -----
+const { contextBridge } = require("electron");
+const fs = require("fs");
+const path = require("path");
+
+contextBridge.exposeInMainWorld("api", {
+  loadResults: () => {
+    try {
+      const filePath = path.resolve(
+        __dirname,
+        "..",
+        "backend",
+        "output_simulation.json"
+      );
+
+      console.log("Loading results from:", filePath);
+
+      return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    } catch (err) {
+      console.error("Failed to load results:", err);
+      return [];
+    }
+  },
+    saveResults: (data) => {
+    const out = path.resolve(__dirname, "..", "export_guard_report.json");
+    fs.writeFileSync(out, JSON.stringify(data, null, 2));
+    return out;
+  }
+});
+
+
+----- FILE: C:\Z\oniontrace\electron\renderer.js -----
+console.log("Renderer loaded");
+
+if (!window.api) {
+    console.error("API not exposed");
+} else {
+    const data = window.api.loadResults();
+    console.log("Loaded data:", data);
+
+    document.getElementById("export").onclick = () => {
+        const path = window.api.saveResults(data);
+        alert("Exported to " + path);
+    };
+
+    const meta = document.getElementById("meta");
+    if (data.length > 0) {
+        meta.innerHTML = `Analysis based on <strong>${data[0].sessions_seen}</strong> correlated sessions <span style="opacity:0.6">(Simulation Mode)</span>`;
+    }
+
+    const tbody = document.getElementById("table-body");
+
+    if (data.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="empty-state">No correlation results available. Run the analysis first.</td></tr>`;
+    } else {
+        data.forEach(row => {
+            const tr = document.createElement("tr");
+
+            // Use the level (HIGH/MEDIUM/LOW) to scope color usage
+            const levelClass = row.confidence_level;
+            const percentage = Math.round(row.confidence * 100);
+
+            tr.innerHTML = `
+                <td>
+                    <span class="guard-id" title="${row.guard_id}">${row.guard_id.substring(0, 12)}...</span>
+                </td>
+                <td style="font-weight: 500;">
+                    ${row.confidence.toFixed(3)}
+                </td>
+                <td>
+                    <div class="bar-container ${levelClass}">
+                        <div class="bar-fill" style="width: ${percentage}%"></div>
+                    </div>
+                </td>
+                <td>
+                    <span class="tag ${levelClass}">${row.confidence_level}</span>
+                </td>
+                <td class="explanation">
+                    ${row.explanation}
+                </td>
+            `;
+
+            tbody.appendChild(tr);
+        });
+    }
+}
+
+
+

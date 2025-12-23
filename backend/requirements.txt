@@ -7,3 +7,4 @@ pandas
 fastapi
 uvicorn
 tqdm
+python-multipart

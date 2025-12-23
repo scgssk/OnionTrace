@@ -97,6 +97,51 @@ def main():
         print(f"[+] Output written to {out_path.resolve()}")
         return
 
+    elif mode == "realtime":
+        print("[*] Running in REAL-TIME mode")
 
+        from app.core.realtime_input import derive_guard_candidates
+        from app.core.correlate import correlate_guards
+    
+        # 1️⃣ Match sessions to TOR exit relays
+        matched_sessions = match_exit_relays(vantage="server")
+
+        if not matched_sessions:
+            print("[!] No TOR exit relays matched")
+            print("[!] Cannot perform real-time correlation safely")
+            return
+
+        # 2️⃣ Derive guard candidates using REAL constraints
+        session_guards = derive_guard_candidates(
+            matched_sessions=matched_sessions,
+            relays=relays
+        )
+
+        if not session_guards:
+            print("[!] No plausible guard candidates found")
+            return
+
+        # 3️⃣ Correlate across sessions
+        results = correlate_guards(session_guards)
+
+        final_output = build_output(
+            results,
+            total_sessions=len(session_guards)
+        )
+
+        print("\n[+] Final Intelligence Output (Real-time Mode)")
+        for item in final_output[:5]:
+            print(item)
+
+        out_path = Path("output_realtime.json")
+        out_path.write_text(json.dumps(final_output, indent=2))
+
+        print(f"[+] Output written to {out_path.resolve()}")
+        return
+
+    else:
+        print("[!] Invalid mode")
+        return
+    
 if __name__ == "__main__":
     main()

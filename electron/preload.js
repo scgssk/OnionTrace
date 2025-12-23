@@ -3,25 +3,31 @@ const fs = require("fs");
 const path = require("path");
 
 contextBridge.exposeInMainWorld("api", {
-  loadResults: () => {
-    try {
-      const filePath = path.resolve(
-        __dirname,
-        "..",
-        "backend",
-        "output_simulation.json"
-      );
+  investigate: async (filePath, mode) => {
+    const fileBuffer = fs.readFileSync(filePath);
 
-      console.log("Loading results from:", filePath);
+    const formData = new FormData();
+    formData.append(
+      "file",
+      new Blob([fileBuffer]),
+      path.basename(filePath)
+    );
+    formData.append("mode", mode);
 
-      return JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    } catch (err) {
-      console.error("Failed to load results:", err);
-      return [];
-    }
+    const res = await fetch("http://localhost:8000/investigate", {
+      method: "POST",
+      body: formData
+    });
+
+    return res.json();
   },
-    saveResults: (data) => {
-    const out = path.resolve(__dirname, "..", "export_guard_report.json");
+
+  saveResults: (data) => {
+    const out = path.resolve(
+      __dirname,
+      "..",
+      "export_guard_report.json"
+    );
     fs.writeFileSync(out, JSON.stringify(data, null, 2));
     return out;
   }
