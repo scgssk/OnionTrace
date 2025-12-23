@@ -1,4 +1,383 @@
------ FILE: C:\Z\oniontrace\README.md -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\export_guard_report.json
+================================================================================
+[
+  {
+    "guard_id": "C/axPS0/2+qx43CQMvumqQp6NRs",
+    "confidence": 1,
+    "confidence_level": "HIGH",
+    "sessions_seen": 25,
+    "explanation": "Guard C/axPS0/2+qx43CQMvumqQp6NRs appeared in 25 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "rGQhylw/7ZnWT1dOPC6mkNG9hJc",
+    "confidence": 1,
+    "confidence_level": "HIGH",
+    "sessions_seen": 25,
+    "explanation": "Guard rGQhylw/7ZnWT1dOPC6mkNG9hJc appeared in 25 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "UBYf9CsRuHxM3SEM+ctJCnsIjbs",
+    "confidence": 1,
+    "confidence_level": "HIGH",
+    "sessions_seen": 25,
+    "explanation": "Guard UBYf9CsRuHxM3SEM+ctJCnsIjbs appeared in 25 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "eSuCG512ND/7SwC8X4QLnsBHzQ8",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard eSuCG512ND/7SwC8X4QLnsBHzQ8 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "4jDItd1OtGrsVyAkKYvWrSDc4k8",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 4jDItd1OtGrsVyAkKYvWrSDc4k8 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "2oydUJmJ+Bdew+SHeIgV97rS2uw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 2oydUJmJ+Bdew+SHeIgV97rS2uw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "BDK+6Cn8sVXOks9Bi3KA+YSeEtA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard BDK+6Cn8sVXOks9Bi3KA+YSeEtA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "eLS6GiUs3AYj+8rDQgvBnwEF9P4",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard eLS6GiUs3AYj+8rDQgvBnwEF9P4 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "Ywhr2p6aD/MzXWgFXEb3siMwNDw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard Ywhr2p6aD/MzXWgFXEb3siMwNDw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "E1i3JvxqDS0VQXsDdrPkLUjFAhE",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard E1i3JvxqDS0VQXsDdrPkLUjFAhE appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "oH092QOe5ClBsboE4XeBcDmobtw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard oH092QOe5ClBsboE4XeBcDmobtw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "AzgWgkT+UxpOaLWlOFC4k2Xiios",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard AzgWgkT+UxpOaLWlOFC4k2Xiios appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "cHj5ZYKeXCw+5sH9kO8un/HR5cU",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard cHj5ZYKeXCw+5sH9kO8un/HR5cU appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "qMAEy1BttQ7SOjXghpXhf+imHFU",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard qMAEy1BttQ7SOjXghpXhf+imHFU appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "IIBH0hlnrKm81EKyDDAGA60Jv8U",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard IIBH0hlnrKm81EKyDDAGA60Jv8U appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "0NvFr5Rkb3h/xSXUUsM0R04C/Ts",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 0NvFr5Rkb3h/xSXUUsM0R04C/Ts appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "f+QrzrTr+zNFj7N7OIUCxMfXIl0",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard f+QrzrTr+zNFj7N7OIUCxMfXIl0 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "18bD0q22aczT2OIuWgF3YWTF9dE",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 18bD0q22aczT2OIuWgF3YWTF9dE appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "twR/venFPDkBHKhOXLKo41QwZtA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard twR/venFPDkBHKhOXLKo41QwZtA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "PVi04US0MUQI709vSnsx/YAHHZ4",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard PVi04US0MUQI709vSnsx/YAHHZ4 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "kXMLRCX5hrfcbjzHLHjq6Fr7Q40",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard kXMLRCX5hrfcbjzHLHjq6Fr7Q40 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "/+nE0Uuyu5TnmUoCxg6viR7Axcw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard /+nE0Uuyu5TnmUoCxg6viR7Axcw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "xv/iqwz/qG+xYdy1vHLaanZOVF4",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard xv/iqwz/qG+xYdy1vHLaanZOVF4 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "2sglu/BdZ4q96hwwhujZnPC78RI",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 2sglu/BdZ4q96hwwhujZnPC78RI appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "ex7IsXxeSNEsORWaWVYm1hDyk3c",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard ex7IsXxeSNEsORWaWVYm1hDyk3c appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "UMNZd+PoLAESm7IstqsNZ0dz1YQ",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard UMNZd+PoLAESm7IstqsNZ0dz1YQ appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "dZuxByTGIrEjgYT+Q3c7ZIGxrUM",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard dZuxByTGIrEjgYT+Q3c7ZIGxrUM appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "V0b+S42Gj+B4FtuEbf+8zvI1rRY",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard V0b+S42Gj+B4FtuEbf+8zvI1rRY appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "0W0Z7SqFcCQnCL2r/fzXueSEyLA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 0W0Z7SqFcCQnCL2r/fzXueSEyLA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "aMXzT9+6frktOu27vut8NryAmdg",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard aMXzT9+6frktOu27vut8NryAmdg appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "RxhuNjFokFen7yI+zF2GkYqeZ54",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard RxhuNjFokFen7yI+zF2GkYqeZ54 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "Z0i6UxCXqTB3b5DiC277o1GaI8A",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard Z0i6UxCXqTB3b5DiC277o1GaI8A appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "UwozKircr21DEqBza83feWoJcls",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard UwozKircr21DEqBza83feWoJcls appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "ITZJN4Yc1+0ivx0IqetV8nQ+A9g",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard ITZJN4Yc1+0ivx0IqetV8nQ+A9g appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "VihJXZk5qME53UQUAt5C9wErcJI",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard VihJXZk5qME53UQUAt5C9wErcJI appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "cRMr5p6Y9slkx23DATLdM7tmfq8",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard cRMr5p6Y9slkx23DATLdM7tmfq8 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "YNNmf1auxcac9+j1V9sh3fbDYGA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard YNNmf1auxcac9+j1V9sh3fbDYGA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "2jgPuAFTnM4alPnS9BQfWRba+4M",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 2jgPuAFTnM4alPnS9BQfWRba+4M appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "/l3b4VnKO7pxWoLUnAj3O0tTeFQ",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard /l3b4VnKO7pxWoLUnAj3O0tTeFQ appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "4AyERkPYMkrofwDCcGax53DZllE",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 4AyERkPYMkrofwDCcGax53DZllE appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "pc8erzwMPZmKmcgScEb8oPi2lyM",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard pc8erzwMPZmKmcgScEb8oPi2lyM appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "qr0yC/gDqPWWVHicwf3Tn3OpUGw",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard qr0yC/gDqPWWVHicwf3Tn3OpUGw appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "d43LnbbN1f8vGoVXEwi0ktbf+WI",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard d43LnbbN1f8vGoVXEwi0ktbf+WI appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "lQk4HskbNGQopdNSjyaD8lhB3QA",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard lQk4HskbNGQopdNSjyaD8lhB3QA appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "os7jdzRY65xg7Lp2jIMDidtWI9M",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard os7jdzRY65xg7Lp2jIMDidtWI9M appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "E4S0X0cu/HhNgz5d0qZ/Vv+4tlg",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard E4S0X0cu/HhNgz5d0qZ/Vv+4tlg appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "rC/jMq3MW4z4kHCiuKntHYd/Xoo",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard rC/jMq3MW4z4kHCiuKntHYd/Xoo appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "/zU/XQEeaezaEKV7RtBrx7P+sZY",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard /zU/XQEeaezaEKV7RtBrx7P+sZY appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "/D9v0qE5NSe7U3hxeP5ORvziw3s",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard /D9v0qE5NSe7U3hxeP5ORvziw3s appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "0ihcKm6kUPZr1NN019kOmwL8gu8",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard 0ihcKm6kUPZr1NN019kOmwL8gu8 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "cOKxtIeI3RYQSR1ebUvDRRD6l/U",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard cOKxtIeI3RYQSR1ebUvDRRD6l/U appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "V4k507VcGjeOmybq5ImnVyMqdeg",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard V4k507VcGjeOmybq5ImnVyMqdeg appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  },
+  {
+    "guard_id": "YXyV/PXwDpjnPjWnHAZu0gYU8m0",
+    "confidence": 0.04,
+    "confidence_level": "LOW",
+    "sessions_seen": 1,
+    "explanation": "Guard YXyV/PXwDpjnPjWnHAZu0gYU8m0 appeared in 1 out of 25 sessions. Repeated appearance across independent sessions increases confidence due to TOR guard stickiness."
+  }
+]
+
+================================================================================
+Filesystem Path: C:\Z\oniontrace\README.md
+================================================================================
 # OnionTrace
 
 OnionTrace is a forensic analysis tool designed for correlating TOR traffic with potential evidence.
@@ -24,7 +403,9 @@ oniontrace/
 ```
 
 
------ FILE: C:\Z\oniontrace\backend\main.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\main.py
+================================================================================
 from app.tor.consensus import fetch_latest_consensus, TorConsensusParser
 from app.tor.topology import TorTopology
 from app.db.repository import upsert_relays
@@ -124,12 +505,59 @@ def main():
         print(f"[+] Output written to {out_path.resolve()}")
         return
 
+    elif mode == "realtime":
+        print("[*] Running in REAL-TIME mode")
 
+        from app.core.realtime_input import derive_guard_candidates
+        from app.core.correlate import correlate_guards
+    
+        # 1️⃣ Match sessions to TOR exit relays
+        matched_sessions = match_exit_relays(vantage="server")
+
+        if not matched_sessions:
+            print("[!] No TOR exit relays matched")
+            print("[!] Cannot perform real-time correlation safely")
+            return
+
+        # 2️⃣ Derive guard candidates using REAL constraints
+        session_guards = derive_guard_candidates(
+            matched_sessions=matched_sessions,
+            relays=relays
+        )
+
+        if not session_guards:
+            print("[!] No plausible guard candidates found")
+            return
+
+        # 3️⃣ Correlate across sessions
+        results = correlate_guards(session_guards)
+
+        final_output = build_output(
+            results,
+            total_sessions=len(session_guards)
+        )
+
+        print("\n[+] Final Intelligence Output (Real-time Mode)")
+        for item in final_output[:5]:
+            print(item)
+
+        out_path = Path("output_realtime.json")
+        out_path.write_text(json.dumps(final_output, indent=2))
+
+        print(f"[+] Output written to {out_path.resolve()}")
+        return
+
+    else:
+        print("[!] Invalid mode")
+        return
+    
 if __name__ == "__main__":
     main()
 
 
------ FILE: C:\Z\oniontrace\backend\requirements.txt -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\requirements.txt
+================================================================================
 
 requests
 sqlalchemy
@@ -139,21 +567,194 @@ pandas
 fastapi
 uvicorn
 tqdm
+python-multipart
+
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\pipeline.py
+================================================================================
+from pathlib import Path
+from collections import defaultdict
+
+from app.evidence.pcap_ingest import ingest_pcap
+from app.evidence.flow_extract import extract_flows
+from app.evidence.store_flows import store_flows
+from app.evidence.validate import validate_traffic
+
+from app.core.sessionize import build_sessions
+from app.core.store_sessions import store_sessions
+from app.core.exit_match import match_exit_relays
+
+from app.core.output import build_output
+from app.core.correlate import correlate_guards
+from app.core.simulated_input import generate_simulated_guards
+from app.core.realtime_input import derive_guard_candidates
 
 
------ FILE: C:\Z\oniontrace\backend\app\__init__.py -----
+def _build_confidence_timeline(session_guards: dict):
+    """
+    Builds confidence-over-time series.
+    Returns:
+      { guard_id: [c1, c2, c3, ...] }
+    """
+    guard_counts = defaultdict(int)
+    timeline = defaultdict(list)
+
+    sessions = list(session_guards.values())
+    total = 0
+
+    for guards in sessions:
+        total += 1
+        for g in guards:
+            guard_counts[g] += 1
+
+        for g, count in guard_counts.items():
+            timeline[g].append(round(count / total, 3))
+
+    return dict(timeline)
 
 
------ FILE: C:\Z\oniontrace\backend\app\api\routes.py -----
+def run_investigation(pcap_path: str, mode: str, relays):
+    """
+    Single product-grade investigation entry point
+    """
+
+    # 1️⃣ Evidence ingestion
+    evidence_id = ingest_pcap(pcap_path)
+
+    flows = extract_flows(pcap_path, evidence_id)
+    store_flows(flows)
+
+    if not validate_traffic(evidence_id):
+        return {
+            "status": "failed",
+            "reason": "No public TOR-like traffic detected",
+            "timeline": {},
+            "results": [],
+            "sessions": 0,
+        }
+
+    # 2️⃣ Session reconstruction
+    sessions = build_sessions(evidence_id)
+    store_sessions(sessions)
+
+    # 3️⃣ Guard candidate derivation
+    if mode == "simulation":
+        all_guards = {r.relay_id for r in relays if r.is_guard}
+        session_guards = generate_simulated_guards(
+            sessions=sessions,
+            all_guards=all_guards
+        )
+
+    elif mode == "realtime":
+        matched_sessions = match_exit_relays(vantage="server")
+        if not matched_sessions:
+            return {
+                "status": "failed",
+                "reason": "No TOR exit relays matched",
+                "timeline": {},
+                "results": [],
+                "sessions": 0,
+            }
+
+        session_guards = derive_guard_candidates(
+            matched_sessions=matched_sessions,
+            relays=relays
+        )
+    else:
+        return {
+            "status": "failed",
+            "reason": "Invalid mode",
+            "timeline": {},
+            "results": [],
+            "sessions": 0,
+        }
+
+    if not session_guards:
+        return {
+            "status": "failed",
+            "reason": "No guard candidates derived",
+            "timeline": {},
+            "results": [],
+            "sessions": 0,
+        }
+
+    # 4️⃣ Correlation
+    results = correlate_guards(session_guards)
+    output = build_output(results, total_sessions=len(session_guards))
+
+    # 5️⃣ Confidence-over-time (NEW)
+    timeline = _build_confidence_timeline(session_guards)
+
+    # 6️⃣ Final response (contract-safe)
+    return {
+        "status": "success",
+        "mode": mode,
+        "sessions": len(session_guards),
+        "results": output,
+        "timeline": timeline,
+    }
 
 
------ FILE: C:\Z\oniontrace\backend\app\api\server.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\__init__.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\backend\app\api\__init__.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\api\routes.py
+================================================================================
+from fastapi import APIRouter, UploadFile, File, Form
+from pathlib import Path
+import tempfile
+
+from app.pipeline import run_investigation
+from app.tor.consensus import fetch_latest_consensus, TorConsensusParser
+
+router = APIRouter()
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\correlate.py -----
+@router.post("/investigate")
+async def investigate(
+    file: UploadFile = File(...),
+    mode: str = Form("simulation")
+):
+    # 1. Persist uploaded PCAP safely
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".pcap") as tmp:
+        tmp.write(await file.read())
+        pcap_path = tmp.name
+
+    # 2. Fetch TOR consensus once per investigation
+    raw = fetch_latest_consensus()
+    relays = TorConsensusParser(raw).parse()
+
+    # 3. Run full investigation pipeline
+    result = run_investigation(
+        pcap_path=pcap_path,
+        mode=mode,
+        relays=relays
+    )
+
+    return result
+
+
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\api\server.py
+================================================================================
+from fastapi import FastAPI
+from app.api.routes import router
+
+app = FastAPI(title="OnionTrace Backend")
+app.include_router(router)
+
+
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\api\__init__.py
+================================================================================
+
+
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\correlate.py
+================================================================================
 from collections import defaultdict
 
 def correlate_guards(session_guards: dict):
@@ -181,7 +782,9 @@ def correlate_guards(session_guards: dict):
     return sorted(results, key=lambda x: x["confidence"], reverse=True)
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\exit_match.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\exit_match.py
+================================================================================
 from app.db.engine import get_connection
 
 def match_exit_relays(vantage: str = "server"):
@@ -233,7 +836,9 @@ def match_exit_relays(vantage: str = "server"):
     return matched
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\explain.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\explain.py
+================================================================================
 def explain_guard(guard_id, seen, total):
     return (
         f"Guard {guard_id} appeared in {seen} out of {total} sessions. "
@@ -242,7 +847,9 @@ def explain_guard(guard_id, seen, total):
     )
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\labels.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\labels.py
+================================================================================
 def confidence_label(confidence: float) -> str:
     if confidence >= 0.75:
         return "HIGH"
@@ -251,11 +858,15 @@ def confidence_label(confidence: float) -> str:
     return "LOW"
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\mode.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\mode.py
+================================================================================
 MODE = "simulation"   # change to "realtime" later
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\output.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\output.py
+================================================================================
 from app.core.labels import confidence_label
 from app.core.explain import explain_guard
 
@@ -279,18 +890,63 @@ def build_output(results, total_sessions):
     return output
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\realtime_input.py -----
-def derive_guard_candidates(matched_sessions):
-    """
-    Real implementation:
-    - timing windows
-    - bandwidth plausibility
-    - network constraints
-    """
-    raise NotImplementedError
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\realtime_input.py
+================================================================================
+from collections import defaultdict
+from datetime import datetime
+
+BANDWIDTH_RATIO = 0.5  # conservative threshold
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\run_correlation.py -----
+def derive_guard_candidates(matched_sessions, relays):
+    """
+    Real-time guard candidate derivation.
+
+    matched_sessions: list of dicts from exit_match.py
+    relays: list of Relay objects (from consensus)
+
+    Returns:
+      { session_id: set(guard_relay_ids) }
+    """
+
+    # Pre-filter guards only once
+    guard_relays = [
+        r for r in relays
+        if r.is_guard and not r.is_bad_exit
+    ]
+
+    session_guards = defaultdict(set)
+
+    for s in matched_sessions:
+        session_id = s["session_id"]
+        start = _parse_ts(s["start_time"])
+        end = _parse_ts(s["end_time"])
+        exit_bw = s["bandwidth"]
+
+        for g in guard_relays:
+            # 1️⃣ Temporal plausibility
+            if g.published > end:
+                continue
+
+            # 2️⃣ Bandwidth plausibility
+            if g.bandwidth < exit_bw * BANDWIDTH_RATIO:
+                continue
+
+            session_guards[session_id].add(g.relay_id)
+
+    return dict(session_guards)
+
+
+def _parse_ts(ts):
+    if isinstance(ts, datetime):
+        return ts
+    return datetime.fromisoformat(ts)
+
+
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\run_correlation.py
+================================================================================
 MODE = "simulation"   # switch to "realtime" later
 
 def run_correlation(sessions, all_guards):
@@ -309,7 +965,9 @@ def run_correlation(sessions, all_guards):
     return correlate_guards(session_guards)
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\sessionize.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\sessionize.py
+================================================================================
 import uuid
 from app.db.engine import get_connection
 from datetime import datetime,timedelta
@@ -394,7 +1052,9 @@ def _finalize_session(session):
     }
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\simulated_input.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\simulated_input.py
+================================================================================
 import random
 
 def generate_simulated_guards(sessions, all_guards, sticky_guards=3, noise=2):
@@ -417,7 +1077,9 @@ def generate_simulated_guards(sessions, all_guards, sticky_guards=3, noise=2):
     return session_map
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\store_sessions.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\store_sessions.py
+================================================================================
 from app.db.engine import get_connection
 
 
@@ -445,10 +1107,14 @@ def store_sessions(sessions: list[dict]):
     print(f"[+] Stored {len(sessions)} sessions")
 
 
------ FILE: C:\Z\oniontrace\backend\app\core\__init__.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\core\__init__.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\backend\app\db\engine.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\db\engine.py
+================================================================================
 import sqlite3
 from pathlib import Path
 
@@ -460,7 +1126,9 @@ def get_connection():
     return conn
 
 
------ FILE: C:\Z\oniontrace\backend\app\db\repository.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\db\repository.py
+================================================================================
 from app.db.engine import get_connection
 from app.tor.consensus import Relay
 
@@ -498,7 +1166,9 @@ def upsert_relays(relays):
             )
 
 
------ FILE: C:\Z\oniontrace\backend\app\db\schema.sql -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\db\schema.sql
+================================================================================
 PRAGMA foreign_keys = ON;
 
 -- =========================
@@ -594,10 +1264,14 @@ CREATE INDEX IF NOT EXISTS idx_flows_server_ip ON flows(server_ip);
 CREATE INDEX IF NOT EXISTS idx_flows_time ON flows(start_time, end_time);
 
 
------ FILE: C:\Z\oniontrace\backend\app\db\__init__.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\db\__init__.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\backend\app\evidence\flow_extract.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\evidence\flow_extract.py
+================================================================================
 from scapy.all import rdpcap, IP, TCP, UDP
 from collections import defaultdict
 from datetime import datetime
@@ -665,7 +1339,9 @@ def extract_flows(pcap_path: str, evidence_id: str):
     return list(flows.values())
 
 
------ FILE: C:\Z\oniontrace\backend\app\evidence\normalizer.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\evidence\normalizer.py
+================================================================================
 def normalize_flow(flow: dict) -> dict:
     """
     Normalize flow direction so that:
@@ -698,7 +1374,9 @@ def normalize_flow(flow: dict) -> dict:
     }
 
 
------ FILE: C:\Z\oniontrace\backend\app\evidence\pcap_ingest.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\evidence\pcap_ingest.py
+================================================================================
 import hashlib
 from pathlib import Path
 from app.db.engine import get_connection
@@ -740,7 +1418,9 @@ def ingest_pcap(pcap_path: str) -> str:
     return evidence_id
 
 
------ FILE: C:\Z\oniontrace\backend\app\evidence\store_flows.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\evidence\store_flows.py
+================================================================================
 from app.db.engine import get_connection
 from app.evidence.normalizer import normalize_flow
 
@@ -783,7 +1463,9 @@ def store_flows(flows: list[dict]):
     print(f"[+] Stored {len(flows)} normalized flows")
 
 
------ FILE: C:\Z\oniontrace\backend\app\evidence\validate.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\evidence\validate.py
+================================================================================
 import ipaddress
 from app.db.engine import get_connection
 
@@ -834,10 +1516,14 @@ def validate_traffic(evidence_id: str) -> bool:
     return True
 
 
------ FILE: C:\Z\oniontrace\backend\app\evidence\__init__.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\evidence\__init__.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\backend\app\tor\consensus.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\tor\consensus.py
+================================================================================
 import urllib.request
 import datetime
 import re
@@ -949,10 +1635,14 @@ class TorConsensusParser:
         )
 
 
------ FILE: C:\Z\oniontrace\backend\app\tor\descriptors.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\tor\descriptors.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\backend\app\tor\models.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\tor\models.py
+================================================================================
 from dataclasses import dataclass
 from datetime import datetime
 
@@ -968,7 +1658,9 @@ class Relay:
     published: datetime
 
 
------ FILE: C:\Z\oniontrace\backend\app\tor\topology.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\tor\topology.py
+================================================================================
 from collections import defaultdict
 from typing import List
 from app.tor.consensus import Relay
@@ -997,19 +1689,29 @@ class TorTopology:
         }
 
 
------ FILE: C:\Z\oniontrace\backend\app\tor\__init__.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\tor\__init__.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\backend\app\utils\hashing.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\utils\hashing.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\backend\app\utils\time.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\utils\time.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\backend\app\utils\__init__.py -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\backend\app\utils\__init__.py
+================================================================================
 
 
------ FILE: C:\Z\oniontrace\electron\index.html -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\electron\index.html
+================================================================================
 <!DOCTYPE html>
 <html>
 
@@ -1018,219 +1720,72 @@ class TorTopology:
     <title>OnionTrace Analysis</title>
     <!-- Use Inter font for a clean, technical look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --border-color: #334155;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --success: #22c55e;
-            --warning: #eab308;
-            --danger: #ef4444;
-        }
+    <link rel="stylesheet" href="styles.css" />
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            margin: 0;
-            padding: 24px;
-            line-height: 1.5;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .title-group h1 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-        }
-
-        .title-group p {
-            margin: 4px 0 0;
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .controls button {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .controls button:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-
-        th {
-            background: #111827;
-            text-align: left;
-            padding: 12px 16px;
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        td {
-            padding: 16px;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: middle;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        .guard-id {
-            font-family: 'Courier New', monospace;
-            color: var(--accent);
-        }
-
-        .explanation {
-            color: var(--text-secondary);
-            font-size: 13px;
-        }
-
-        .bar-container {
-            width: 120px;
-            height: 6px;
-            background: #334155;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        /* Status Colors */
-        .HIGH .bar-fill,
-        .tag.HIGH {
-            background: var(--success);
-            color: #000;
-        }
-
-        .MEDIUM .bar-fill,
-        .tag.MEDIUM {
-            background: var(--warning);
-            color: #000;
-        }
-
-        .LOW .bar-fill,
-        .tag.LOW {
-            background: var(--danger);
-            color: #fff;
-        }
-
-        .HIGH .tag.HIGH {
-            background: rgba(34, 197, 94, 0.2);
-            color: var(--success);
-            border: 1px solid var(--success);
-        }
-
-        .MEDIUM .tag.MEDIUM {
-            background: rgba(234, 179, 8, 0.2);
-            color: var(--warning);
-            border: 1px solid var(--warning);
-        }
-
-        .LOW .tag.LOW {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--danger);
-            border: 1px solid var(--danger);
-        }
-
-        .empty-state {
-            padding: 48px;
-            text-align: center;
-            color: var(--text-secondary);
-        }
-    </style>
 </head>
 
 <body>
-    <div class="header">
-        <div class="title-group">
-            <h1>OnionTrace Analysis</h1>
-            <p id="meta">Network Forensics Intelligence Dashboard</p>
-        </div>
-        <div class="controls">
-            <button id="export">
-                <span>Download Report</span>
-            </button>
-        </div>
+
+  <div class="header">
+    <div class="title-group">
+      <h1>OnionTrace</h1>
+      <p id="meta">Network Forensics Intelligence Dashboard</p>
     </div>
 
+    <div class="controls">
+      <button id="pdf">Export PDF</button>
+      <button id="export" class="secondary">Export JSON</button>
+      <input type="file" id="pcap" accept=".pcap">
+      <select id="mode">
+        <option value="simulation">Simulation</option>
+        <option value="realtime">Real-time (Dev)</option>
+      </select>
+      <button id="analyze">Analyze</button>
+    </div>
+  </div>
+
+  <div class="workspace">
+
+    <!-- RESULTS -->
     <div class="card">
-        <table id="results">
-            <thead>
-                <tr>
-                    <th width="20%">Guard Identify (Base64)</th>
-                    <th width="15%">Confidence</th>
-                    <th width="10%">Score</th>
-                    <th width="10%">Level</th>
-                    <th width="45%">Forensic Reasoning</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                <!-- Rows injected by renderer.js -->
-            </tbody>
-        </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Guard</th>
+            <th>Confidence</th>
+            <th>Score</th>
+            <th>Level</th>
+            <th>Forensic Reasoning</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
     </div>
 
-    <script src="renderer.js"></script>
+    <!-- GRAPH -->
+    <div class="card">
+      <div class="graph-header">
+        <h3 id="graph-title">Confidence Over Time</h3>
+        <p id="graph-hint" class="text-muted">
+          Select a guard to visualize confidence evolution
+        </p>
+      </div>
+      <div class="graph-body">
+        <canvas id="confidenceChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="renderer.js"></script>
 </body>
+
 
 </html>
 
------ FILE: C:\Z\oniontrace\electron\main.js -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\electron\main.js
+================================================================================
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
@@ -1252,7 +1807,9 @@ function createWindow() {
 app.whenReady().then(createWindow);
 
 
------ FILE: C:\Z\oniontrace\electron\package.json -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\electron\package.json
+================================================================================
 {
     "name": "oniontrace-electron",
     "version": "1.0.0",
@@ -1274,92 +1831,385 @@ app.whenReady().then(createWindow);
 }
 
 
------ FILE: C:\Z\oniontrace\electron\preload.js -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\electron\preload.js
+================================================================================
 const { contextBridge } = require("electron");
 const fs = require("fs");
 const path = require("path");
 
 contextBridge.exposeInMainWorld("api", {
-  loadResults: () => {
-    try {
-      const filePath = path.resolve(
-        __dirname,
-        "..",
-        "backend",
-        "output_simulation.json"
-      );
+  investigate: async (filePath, mode) => {
+    const fileBuffer = fs.readFileSync(filePath);
 
-      console.log("Loading results from:", filePath);
+    const formData = new FormData();
+    formData.append(
+      "file",
+      new Blob([fileBuffer]),
+      path.basename(filePath)
+    );
+    formData.append("mode", mode);
 
-      return JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    } catch (err) {
-      console.error("Failed to load results:", err);
-      return [];
-    }
+    const res = await fetch("http://localhost:8000/investigate", {
+      method: "POST",
+      body: formData
+    });
+
+    return res.json();
   },
-    saveResults: (data) => {
-    const out = path.resolve(__dirname, "..", "export_guard_report.json");
+
+  saveResults: (data) => {
+    const out = path.resolve(
+      __dirname,
+      "..",
+      "export_guard_report.json"
+    );
     fs.writeFileSync(out, JSON.stringify(data, null, 2));
     return out;
   }
 });
 
 
------ FILE: C:\Z\oniontrace\electron\renderer.js -----
+================================================================================
+Filesystem Path: C:\Z\oniontrace\electron\renderer.js
+================================================================================
 console.log("Renderer loaded");
 
-if (!window.api) {
-    console.error("API not exposed");
-} else {
-    const data = window.api.loadResults();
-    console.log("Loaded data:", data);
+let currentResults = [];
+let confidenceTimeline = {};
+let selectedGuard = null;
 
-    document.getElementById("export").onclick = () => {
-        const path = window.api.saveResults(data);
-        alert("Exported to " + path);
-    };
+const meta = document.getElementById("meta");
+const tbody = document.getElementById("table-body");
 
-    const meta = document.getElementById("meta");
-    if (data.length > 0) {
-        meta.innerHTML = `Analysis based on <strong>${data[0].sessions_seen}</strong> correlated sessions <span style="opacity:0.6">(Simulation Mode)</span>`;
+document.getElementById("analyze").onclick = async () => {
+  const fileInput = document.getElementById("pcap");
+  const mode = document.getElementById("mode").value;
+
+  if (!fileInput.files.length) {
+    alert("Please select a PCAP file");
+    return;
+  }
+
+  meta.innerText = "Running analysis...";
+  tbody.innerHTML = "";
+
+  const filePath = fileInput.files[0].path;
+
+  try {
+    const response = await window.api.investigate(filePath, mode);
+
+    if (response.status !== "success") {
+      meta.innerText = "Analysis failed";
+      alert(response.reason);
+      return;
     }
 
-    const tbody = document.getElementById("table-body");
+    currentResults = response.results;
+    confidenceTimeline = response.timeline;
 
-    if (data.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" class="empty-state">No correlation results available. Run the analysis first.</td></tr>`;
-    } else {
-        data.forEach(row => {
-            const tr = document.createElement("tr");
+    meta.innerHTML =
+      `Analysis based on <strong>${response.sessions}</strong> sessions ` +
+      `<span style="opacity:0.6">(${mode} mode)</span>`;
 
-            // Use the level (HIGH/MEDIUM/LOW) to scope color usage
-            const levelClass = row.confidence_level;
-            const percentage = Math.round(row.confidence * 100);
+    renderResults(currentResults);
+    drawConfidenceChart(confidenceTimeline);
+  } catch (err) {
+    console.error(err);
+    meta.innerText = "Backend error";
+    alert("Failed to communicate with backend");
+  }
+};
 
-            tr.innerHTML = `
-                <td>
-                    <span class="guard-id" title="${row.guard_id}">${row.guard_id.substring(0, 12)}...</span>
-                </td>
-                <td style="font-weight: 500;">
-                    ${row.confidence.toFixed(3)}
-                </td>
-                <td>
-                    <div class="bar-container ${levelClass}">
-                        <div class="bar-fill" style="width: ${percentage}%"></div>
-                    </div>
-                </td>
-                <td>
-                    <span class="tag ${levelClass}">${row.confidence_level}</span>
-                </td>
-                <td class="explanation">
-                    ${row.explanation}
-                </td>
-            `;
 
-            tbody.appendChild(tr);
-        });
-    }
+document.getElementById("export").onclick = () => {
+  if (!currentResults.length) {
+    alert("No results to export");
+    return;
+  }
+
+  const path = window.api.saveResults(currentResults);
+  alert("Exported to " + path);
+};
+
+
+function updateGraphTitle(row) {
+  document.getElementById("graph-title").innerText =
+    `Confidence Over Time — ${row.guard_id.substring(0,12)}…`;
+
+  document.getElementById("graph-hint").innerText =
+    `Confidence stabilizes as the guard reappears across sessions. Final confidence: ${row.confidence}`;
 }
 
+
+function renderResults(data) {
+  tbody.innerHTML = "";
+
+  data.forEach(row => {
+    const tr = document.createElement("tr");
+    tr.style.cursor = "pointer";
+
+    tr.onclick = () => {
+      selectedGuard = row.guard_id;
+      drawConfidenceChart(confidenceTimeline, selectedGuard);
+      updateGraphTitle(row);
+    };
+
+    const level = row.confidence_level;
+    const pct = Math.round(row.confidence * 100);
+
+    tr.innerHTML = `
+      <td class="guard-id">${row.guard_id.substring(0,12)}...</td>
+      <td>${row.confidence.toFixed(3)}</td>
+      <td>
+        <div class="bar-container ${level}">
+          <div class="bar-fill" style="width:${pct}%"></div>
+        </div>
+      </td>
+      <td><span class="tag ${level}">${level}</span></td>
+      <td class="explanation">${row.explanation}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+
+function drawConfidenceChart(timeline, guardId) {
+  const canvas = document.getElementById("confidenceChart");
+  const ctx = canvas.getContext("2d");
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (!guardId || !timeline[guardId]) return;
+
+  const values = timeline[guardId];
+  const padding = 40;
+  const width = canvas.width - padding * 2;
+  const height = canvas.height - padding * 2;
+
+  // Axes
+  ctx.strokeStyle = "#64748b";
+  ctx.beginPath();
+  ctx.moveTo(padding, padding);
+  ctx.lineTo(padding, padding + height);
+  ctx.lineTo(padding + width, padding + height);
+  ctx.stroke();
+
+  // Line
+  ctx.strokeStyle = "#22c55e";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+
+  values.forEach((v, i) => {
+    const x = padding + (i / (values.length - 1)) * width;
+    const y = padding + height - v * height;
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+
+  ctx.stroke();
+}
+
+document.getElementById("pdf").onclick = async () => {
+  const { jsPDF } = await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js");
+  const doc = new jsPDF("p", "pt", "a4");
+
+  doc.text("OnionTrace Investigation Report", 40, 40);
+  doc.text(`Generated: ${new Date().toLocaleString()}`, 40, 60);
+
+  let y = 100;
+  currentResults.slice(0, 10).forEach(r => {
+    doc.text(`Guard: ${r.guard_id}`, 40, y);
+    doc.text(`Confidence: ${r.confidence}`, 40, y + 14);
+    doc.text(`Level: ${r.confidence_level}`, 40, y + 28);
+    y += 60;
+  });
+
+  doc.save("oniontrace_report.pdf");
+};
+
+
+================================================================================
+Filesystem Path: C:\Z\oniontrace\electron\styles.css
+================================================================================
+:root {
+  --bg-dark: #0b1220;
+  --bg-panel: #121a2f;
+  --bg-card: #1e293b;
+  --border: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #3b82f6;
+  --success: #22c55e;
+  --warning: #eab308;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: Inter, system-ui, sans-serif;
+  background: linear-gradient(180deg, #0b1220, #020617);
+  color: var(--text-main);
+}
+
+/* ===== HEADER ===== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.title-group h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.title-group p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ===== CONTROLS ===== */
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+input[type="file"],
+select {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* ===== LAYOUT ===== */
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* ===== CARDS ===== */
+
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* ===== TABLE ===== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #020617;
+  padding: 12px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+tr:hover {
+  background: rgba(59, 130, 246, 0.08);
+  cursor: pointer;
+}
+
+.guard-id {
+  font-family: monospace;
+  color: var(--accent);
+}
+
+/* ===== CONFIDENCE ===== */
+
+.bar-container {
+  width: 100px;
+  height: 6px;
+  background: #020617;
+  border-radius: 4px;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.HIGH .bar-fill { background: var(--success); }
+.MEDIUM .bar-fill { background: var(--warning); }
+.LOW .bar-fill { background: var(--danger); }
+
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.tag.HIGH { background: rgba(34,197,94,.15); color: var(--success); }
+.tag.MEDIUM { background: rgba(234,179,8,.15); color: var(--warning); }
+.tag.LOW { background: rgba(239,68,68,.15); color: var(--danger); }
+
+/* ===== GRAPH ===== */
+
+.graph-header {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.graph-body {
+  padding: 16px;
+}
+
+canvas {
+  width: 100%;
+  height: 260px;
+}
 
 

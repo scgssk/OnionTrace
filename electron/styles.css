@@ -1,0 +1,207 @@
+:root {
+  --bg-dark: #0b1220;
+  --bg-panel: #121a2f;
+  --bg-card: #1e293b;
+  --border: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #3b82f6;
+  --success: #22c55e;
+  --warning: #eab308;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: Inter, system-ui, sans-serif;
+  background: linear-gradient(180deg, #0b1220, #020617);
+  color: var(--text-main);
+  height: 100vh; /* Fixed height */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent body scroll */
+}
+
+/* ===== HEADER ===== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0; /* Don't shrink header */
+}
+
+.title-group h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.title-group p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ===== CONTROLS ===== */
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+input[type="file"],
+select {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* ===== LAYOUT ===== */
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+  flex: 1; /* Fill remaining height */
+  min-height: 0; /* Allow flex child to shrink below content size */
+}
+
+/* ===== CARDS ===== */
+
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Organize content vertically */
+  height: 100%; /* Fill grid cell */
+}
+
+/* ===== TABLE ===== */
+
+/* Make the table container (the card) scrollable for the table part */
+/* We need to target the card containing the table specifically, 
+   or just make the table logic handle it */
+
+/* For the table card specifically */
+.card:first-child {
+    overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #020617; /* Opaque background for sticky header */
+  padding: 12px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  position: sticky; /* Sticky header */
+  top: 0;
+  z-index: 10;
+}
+
+td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+tr:hover {
+  background: rgba(59, 130, 246, 0.08);
+  cursor: pointer;
+}
+
+.guard-id {
+  font-family: monospace;
+  color: var(--accent);
+}
+
+/* ===== CONFIDENCE ===== */
+
+.bar-container {
+  width: 100px;
+  height: 6px;
+  background: #020617;
+  border-radius: 4px;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.HIGH .bar-fill { background: var(--success); }
+.MEDIUM .bar-fill { background: var(--warning); }
+.LOW .bar-fill { background: var(--danger); }
+
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.tag.HIGH { background: rgba(34,197,94,.15); color: var(--success); }
+.tag.MEDIUM { background: rgba(234,179,8,.15); color: var(--warning); }
+.tag.LOW { background: rgba(239,68,68,.15); color: var(--danger); }
+
+/* ===== GRAPH ===== */
+
+.graph-header {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.graph-body {
+  padding: 16px;
+  flex: 1; /* Fill remaining card space */
+  overflow-y: auto; /* Scroll if content (canvas) is too tall */
+  display: flex;
+  align-items: center; /* Center canvas if small */
+  justify-content: center;
+}
+
+canvas {
+  width: 100% !important; /* Force fit width */
+  height: auto !important; /* Allow height to adjust or fill */
+  max-height: 100%;
+}
