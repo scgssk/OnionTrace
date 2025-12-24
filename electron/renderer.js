@@ -136,8 +136,8 @@ function drawConfidenceChart(timeline, guardId) {
   ctx.stroke();
 }
 
-document.getElementById("pdf").onclick = async () => {
-  const { jsPDF } = await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js");
+document.getElementById("pdf").onclick = () => {
+  const { jsPDF } = window.jspdf;
   const doc = new jsPDF("p", "pt", "a4");
 
   doc.text("OnionTrace Investigation Report", 40, 40);
@@ -153,3 +153,5 @@ document.getElementById("pdf").onclick = async () => {
 
   doc.save("oniontrace_report.pdf");
 };
+
+

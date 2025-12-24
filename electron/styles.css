@@ -90,7 +90,7 @@ select {
 
 .workspace {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 24px;
   margin-top: 24px;
   flex: 1; /* Fill remaining height */
@@ -118,6 +118,7 @@ select {
 /* For the table card specifically */
 .card:first-child {
     overflow-y: auto;
+    overflow-x: auto;
 }
 
 table {
